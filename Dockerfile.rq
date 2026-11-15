@@ -1,0 +1,15 @@
+ARG EXIST_VERSION=release
+
+FROM duncdrum/existdb:${EXIST_VERSION}
+
+ADD https://github.com/BetaMasaheft/DillmannData/releases/latest/download/dill-data.xar /exist/autodeploy/001.xar
+
+# RQ just commenting out since it's breaking here, and I don't have any .xar files and I don't have them in a ./build dir...
+COPY build/BetMasWeb-0.1.xar /exist/autodeploy/
+COPY build/BetaMasaheft-4.0.xar /exist/autodeploy/
+COPY build/gez-en-2.6.xar /exist/autodeploy/
+COPY build/parser-0.5.xar /exist/autodeploy/
+    
+    
+
+# We might want to switch to exploded images for faster deployments later
